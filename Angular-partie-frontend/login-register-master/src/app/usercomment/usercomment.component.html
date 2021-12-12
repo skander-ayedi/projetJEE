@@ -1,0 +1,16 @@
+<app-add-comment style="position: inherit !important;
+top: 133px;
+padding: 21px;
+background: none;
+border: none;"></app-add-comment>
+<br><br> <br>
+<div class="container" style="background-color: #0d6efd; width: 500px;">
+    <h4>Comment List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let comment of comments">
+        {{ comment.text }}
+      </li>
+    </ul>
+</div>

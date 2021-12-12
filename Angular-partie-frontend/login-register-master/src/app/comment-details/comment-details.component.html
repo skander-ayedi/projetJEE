@@ -1,0 +1,53 @@
+
+<div class="card" style="width: 18rem; " *ngfor="let comment of comments">
+    <div class="card-header">
+        <h2>text</h2>
+    </div>
+  
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">title: {{comment.text}}</li>
+    </ul>
+   <div class="card-body">
+    <span class="btn btn-info" (click)="updateComment()">Update</span>
+    <span class="btn btn-danger" (click)="deleteComment()">Delete</span>
+   </div>
+</div>
+
+<div style="width: 400px; margin: auto;">
+  <div *ngIf="currentComment" class="edit-form" style="border: 1px solid black; padding: 10px;">
+    <h4>comment</h4>
+    <form>
+      <div class="form-group">
+        <label for="text">comment</label>
+        <input
+          type="text"
+          class="form-control"
+          id="text"
+          [(ngModel)]="currentComment.text"
+          name="title"
+        />
+      </div>
+     
+
+    </form>
+
+
+    <button class="btn btn-danger mr-2" (click)="deleteComment()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="btn btn-success"
+      (click)="updateComment()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentComment">
+    <br />
+    <p>Cannot access this Comment...</p>
+  </div>
+</div>

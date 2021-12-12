@@ -1,0 +1,45 @@
+
+<div style="width: 400px; margin: auto; border: 1px solid black">
+    <div *ngIf="currentTeam" class="edit-form">
+      <h4>Team</h4>
+      <form>
+        <div class="form-group">
+          <label for="teamName">TeamName</label>
+          <input
+            type="text"
+            class="form-control"
+            id="teamName"
+            [(ngModel)]="currentTeam.teamName"
+            name="teamName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="teamScore">teamScore</label>
+          <input
+            type="text"
+            class="form-control"
+            id="teamScore"
+            [(ngModel)]="currentTeam.teamScore"
+            name="teamScore"
+          />
+        </div>
+      </form>
+      <button class="btn btn-danger" (click)="deleteTeam()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="btn btn-success"
+        (click)="updateTeam()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentTeam">
+      <br />
+      <p>Cannot access this Team...</p>
+    </div>
+  </div>

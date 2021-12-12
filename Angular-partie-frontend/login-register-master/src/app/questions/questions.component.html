@@ -1,0 +1,71 @@
+
+<app-welcome2></app-welcome2>
+
+<div class="row">
+    <div class="col-lg-3">
+        <div id="sideBar">
+              <div style="padding: 16px;">
+                  <div class="card" id="theme">
+
+                    <div class="list-group">
+                        <button type="button" class="list-group-item list-group-item-action active" style="cursor: default;background: #52525f;">
+                         Thèmes
+                        </button>
+                        <button style="cursor: default" type="button" class="list-group-item d-flex justify-content-between list-group-item-action"
+                         *ngFor="let theme of themes">
+                          <a [routerLink]="['/questions/level/', theme.id]">{{theme.name}} </a>
+                          <div>
+                            <i class="far fa-edit"></i>
+                            <i class='fas fa-trash-alt' style='color:red; margin: 0 12px'></i>
+                            <i class="fas fa-plus-square" (click)="addLevel(theme.id)"></i>
+                         </div></button>
+
+                        <button type="button" class="list-group-item list-group-item-action active"
+                        style="text-align: center;" (click)="openRegister()">Ajouter un thème</button>
+                      </div>
+
+                      <div class="list-group" >
+                        <button type="button" class="list-group-item list-group-item-action active" style="cursor: default; background: #52525f;">
+                         Teams
+                        </button>
+                       
+                        <button type="button" class="list-group-item list-group-item-action active"
+                        style="text-align: center; border-top: 1px solid white;" routerLink="/questions/teams">list les teams</button>
+                        
+                        <button type="button" class="list-group-item list-group-item-action active"
+                        style="text-align: center; border-top: 1px solid white;" routerLink="/questions/addTeam">Ajouter un team</button>
+                      </div>
+                      <div class="list-group" >
+                        <button type="button" class="list-group-item list-group-item-action active" style="cursor: default; background: #52525f;">
+                         formation
+                        </button>
+                       
+                        <button type="button" class="list-group-item list-group-item-action active"
+                        style="text-align: center; border-top: 1px solid white;" routerLink="/questions/formation">list les formations</button>
+                        
+                        <button type="button" class="list-group-item list-group-item-action active"
+                        style="text-align: center; border-top: 1px solid white;" routerLink="/questions/addformation">Ajouter un formation</button>
+                      </div>
+                      <div class="list-group" >
+                        <button type="button" class="list-group-item list-group-item-action active" style="cursor: default; background: #52525f;">
+                         comment
+                        </button>
+                       
+                        <button type="button" class="list-group-item list-group-item-action active"
+                        style="text-align: center; border-top: 1px solid white;" routerLink="/questions/comment">list les commentaires</button>
+                        
+                        <button type="button" class="list-group-item list-group-item-action active"
+                        style="text-align: center; border-top: 1px solid white;" routerLink="/questions/addcomment">Ajouter un commentaire</button>
+                      </div>
+                    </div>
+              </div>
+              <div class="container app">
+              </div>
+            
+
+        </div>
+    </div>
+    <div class="col-lg-9">
+      <router-outlet></router-outlet>
+    </div>
+</div>

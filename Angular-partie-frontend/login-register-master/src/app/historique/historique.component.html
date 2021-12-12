@@ -1,0 +1,60 @@
+
+<app-header></app-header>
+<section id="promo">
+  <div class="container">
+    <p>WELCOME TO CODE FEVER</p>
+  
+  </div>
+</section>
+<br>
+<div class="container">
+  <div class="card">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nom d'étudiant</th>
+            <th scope="col">Difficulté</th>
+            <th scope="col">Thème</th>
+            <th scope="col">Temps total</th>
+            <th scope="col">Score</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let h of histories">
+          <tr>
+            <td>{{h.username}}</td>
+            <td>{{h.levelName}}</td>
+            <td>{{h.themeName}}</td>
+            <td>{{h.total}}</td>
+            <td>{{h.sore}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+<div>
+    <button class="btn btn-primary" [routerLink]="['/theme']"
+    style="background: #3a9efd; margin-top: 15px; border-color: #3a9efd;">start qcm</button>
+    <br>
+   
+    <button class="btn btn-primary" [routerLink]="['/userformation']"
+    style="background: #3a9efd; margin-top: 15px; border-color: #3a9efd;">see the avaiable formation</button>
+    <br>
+  
+</div>
+
+</div>
+<br>
+<br>
+
+<app-usercomment></app-usercomment>
+<div class="bottom section-padding" style="margin-top: 300px !important;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="copyright">
+          <p>© <span>2021</span> <a href="#" class="transition">codeFever</a> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

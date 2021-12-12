@@ -1,0 +1,102 @@
+
+
+
+<div class="content">
+<br>
+
+  <mat-card class="example-card">
+
+    <mat-card-header style="background: #d35400; padding: 15px 10px 6px; color: #ffffff; border-radius: 5px">
+      <mat-card-title><mat-icon>how_to_reg</mat-icon> <span style="margin-left: 8px">Register</span> </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>Please fill the fields</mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+
+      <mat-progress-bar mode="indeterminate" *ngIf="showSpinner"></mat-progress-bar>
+
+      <form class="example-form" (ngSubmit)="formRegister.form.valid && onSubmit()" #formRegister="ngForm" novalidate>
+        <mat-vertical-stepper linear>
+
+          <mat-step label="Step 1">
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Username</mat-label>
+              <input type="text" matInput placeholder="username" name="username" [(ngModel)]="form.username" #username="ngModel" required>
+            </mat-form-field> <br>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input type="text" matInput placeholder="email" name="email" [(ngModel)]="form.email" #email="ngModel" required>
+            </mat-form-field> <br>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input type="password" matInput placeholder="password" name="password" [(ngModel)]="form.password" #password="ngModel" required>
+            </mat-form-field>
+
+          </mat-step>
+
+          <mat-step label="Step 2">
+            <mat-form-field class="example-full-width">
+              <mat-label>Name</mat-label>
+              <input type="text" matInput placeholder="name" name="name" [(ngModel)]="form.name" #name="ngModel" required>
+            </mat-form-field> <br>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Birth date</mat-label>
+              <input type="date" matInput placeholder="name" name="name" [(ngModel)]="form.birthdate" #birthdate="ngModel" required>
+            </mat-form-field> <br>
+
+            <div style="margin-bottom: 10px;">
+              <strong>Gender</strong>
+            </div>
+
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="gender" name="gender" (ngModelChange)="setGender()">
+              <mat-radio-button value="female">Female</mat-radio-button>
+              <mat-radio-button value="male" style="margin-left: 10px;">Male</mat-radio-button>
+            </mat-radio-group>
+
+          </mat-step>
+
+            <mat-step label="Step 3">
+              <mat-form-field class="example-full-width">
+              <mat-label>rolebase</mat-label>
+              <input type="number" matInput placeholder="rolebase" name="rolebase" [(ngModel)]="form.rolebase" #rolebase="ngModel" required>
+              </mat-form-field> <br>
+
+            
+
+           
+            <div style="margin-top: 15px">
+              <button mat-raised-button color="accent" type="submit"
+                      [disabled]="username.invalid || email.invalid || password.invalid || name.invalid
+                    || birthdate.invalid || rolebase.invalid ">
+                Register <mat-icon>supervisor_account</mat-icon></button>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button (click)="reset()">Reset</button>
+            </div>
+          </mat-step>
+
+        </mat-vertical-stepper>
+      </form>
+
+
+    </mat-card-content>
+    <div class="alert alert-success" *ngIf="isSignedUp">
+      Your registration is successful!
+    </div>
+    <hr>
+    <mat-card-actions>
+      <p style="margin-left: 10px; float: right">
+        All ready i have an account
+        <button mat-button color="primary" routerLink="/login">
+          Login <mat-icon>exit_to_app</mat-icon></button>
+      </p>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

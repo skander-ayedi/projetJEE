@@ -1,0 +1,76 @@
+<app-header></app-header>
+<section id="promo">
+  <div class="container">
+    <p>Avaiable courses</p>
+  
+  </div>
+</section>
+
+<div class="col-md-6" style="    background: #0d6efd;">
+    <h4>Formations List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let formation of formations; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveFormation(formation, i)" >
+        {{ formation.title }}
+      </li>
+    </ul>
+  </div>
+  
+  
+  <div class="col-md-6">
+    <div *ngIf="currentFormation"> 
+      <h4>Formation</h4>
+      <div>
+        <label><strong>Title:</strong></label> {{ currentFormation.title }}
+      </div>
+      <div>
+        <label><strong>Description:</strong></label>
+        {{ currentFormation.description }}
+      </div>
+      <div>
+        <label><strong>content:</strong></label>
+        {{ currentFormation.content }}
+      </div>                         
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    <div class="bottom section-padding" style="margin-top: 300px !important;">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div class="copyright">
+                <p>© <span>2021</span> <a href="#" class="transition">codeFever</a> All rights reserved.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

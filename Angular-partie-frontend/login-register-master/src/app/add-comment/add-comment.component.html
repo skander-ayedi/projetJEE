@@ -1,0 +1,26 @@
+<div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="text">Comment</label>
+          <input
+            type="text"
+            class="form-control"
+            id="text"
+            required
+            [(ngModel)]="comment.text"
+            name="text"
+          />
+        </div>
+  
+   
+  
+        <button (click)="save()" class="btn btn-success" style="margin-top: 10px;">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>You submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newcomment()">Add</button>
+      </div>
+    </div>
+  </div>

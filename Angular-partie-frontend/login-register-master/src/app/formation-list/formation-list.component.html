@@ -1,0 +1,41 @@
+
+<div class="list row">
+    
+    <div class="col-md-6" style="    background: #0d6efd;">
+      <h4>Formations List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let formation of formations; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveFormation(formation, i)" >
+          {{ formation.title }}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentFormation"> 
+        <h4>Formation</h4>
+        <div>
+          <label><strong>Title:</strong></label> {{ currentFormation.title }}
+        </div>
+        <div>
+          <label><strong>Description:</strong></label>
+          {{ currentFormation.description }}
+        </div>
+        <div>
+          <label><strong>content:</strong></label>
+          {{ currentFormation.content }}
+        </div>                         
+  
+        <a class="btn btn-warning" routerLink="/questions/formation/{{ currentFormation.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentFormation">
+        <br />
+        <p>Please click on a Formation...</p>
+      </div>
+    </div>
+  </div>
